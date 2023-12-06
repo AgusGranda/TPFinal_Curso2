@@ -1,0 +1,6 @@
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\dominio\bin\Debug\dominio.dll
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\dominio\bin\Debug\dominio.pdb
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\dominio\obj\Debug\dominio.dll
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\dominio\obj\Debug\dominio.pdb

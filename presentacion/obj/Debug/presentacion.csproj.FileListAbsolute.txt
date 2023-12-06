@@ -1,0 +1,16 @@
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\presentacion.exe.config
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\presentacion.exe
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\presentacion.pdb
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.csproj.AssemblyReference.cache
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.Properties.Resources.resources
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.csproj.GenerateResource.cache
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.csproj.CoreCompileInputs.cache
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.exe
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.pdb
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.FrmProductos.resources
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\dominio.dll
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\negocio.dll
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\dominio.pdb
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\negocio.pdb
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.csproj.CopyComplete
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.FrmDetalleProducto.resources
