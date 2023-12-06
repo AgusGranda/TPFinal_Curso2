@@ -23,15 +23,20 @@ namespace presentacion
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            articulos = negocio.listar();
+            
+            cargarColumnas();
 
-            dgvArticulos.DataSource = articulos;
-            suprimirColumnas();
 
 
         }
 
+        private void cargarColumnas()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            articulos = negocio.listar();
+            dgvArticulos.DataSource = articulos;
+            suprimirColumnas();
+        }
 
         private void suprimirColumnas()
         {
@@ -44,8 +49,34 @@ namespace presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmDetalleProducto detalle = new FrmDetalleProducto();
+            detalle.ShowDialog();
+            cargarColumnas();
 
-            detalle.Show();
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+               DialogResult respuesta = MessageBox.Show("Esta seguro que desea eliminar este articulo?", "Eliminando articulo" ,MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ;
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    negocio.eliminar(seleccionado);
+                    MessageBox.Show("Articulo eliminado correctamente!");
+                    cargarColumnas();
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

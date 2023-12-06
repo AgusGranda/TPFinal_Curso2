@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +55,61 @@ namespace negocio
 				datos.cerrarConexion();
 			}
         }
+
+		public void agregar(Articulo nuevo)
+		{
+			AccesoDatos datos = new AccesoDatos();
+
+			try
+			{
+				datos.setearConsulta("insert into ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenUrl,Precio) values(@codigo,@nombre,@descripcion,@idMarca,@idCategoria,@img,@precio)");
+				
+				datos.setearParametros("@codigo",nuevo.Codigo );
+				datos.setearParametros("@nombre",nuevo.Nombre);
+				datos.setearParametros("@descripcion",nuevo.Descripcion);
+				datos.setearParametros("@idMarca",nuevo.Marca.Id);
+				datos.setearParametros("@idCategoria",nuevo.Categoria.Id);
+				datos.setearParametros("@img",nuevo.ImagenUrl);
+				datos.setearParametros("@precio",nuevo.Precio);
+
+				datos.ejecutarAccion();
+				
+
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+			finally
+			{
+				datos.cerrarConexion();
+			}
+			
+		}
+
+		public void eliminar(Articulo eliminar)
+		{
+
+			AccesoDatos datos = new AccesoDatos();
+
+			try
+			{
+				datos.setearConsulta("delete from ARTICULOS where Id=@id");
+				datos.setearParametros("@id", eliminar.Id);
+				datos.ejecutarAccion();
+
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			finally
+			{
+				datos.cerrarConexion();
+			}
+		}
 
 
     }

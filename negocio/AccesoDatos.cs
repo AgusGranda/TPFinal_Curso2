@@ -35,9 +35,9 @@ namespace negocio
             comando.Connection = conexion;
 
             try
-            { 
-            comando.Connection.Open();
-            lector = comando.ExecuteReader();
+            {
+                conexion.Open();
+                lector = comando.ExecuteReader();
             }
             catch (Exception ex)
             {
@@ -46,11 +46,32 @@ namespace negocio
             }
         }
 
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void setearParametros(string clave , object valor)
+        {
+            comando.Parameters.AddWithValue(clave, valor);
+        }
+
         public void cerrarConexion()
         {
             if(lector != null)
                 lector.Close();
-            comando.Connection.Close();
+            conexion.Close();
         }
 
 
