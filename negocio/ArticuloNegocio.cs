@@ -21,7 +21,7 @@ namespace negocio
 
 			try
 			{
-				datos.setearConsulta("select A.Id, Codigo, Nombre,A.Descripcion,M.Descripcion Marca, C.Descripcion Categoria ,ImagenUrl,Precio from ARTICULOS A inner join MARCAS M on IdMarca = M.Id inner join CATEGORIAS C  on IdCategoria = C.Id");
+				datos.setearConsulta("select A.Id, Codigo, Nombre,A.Descripcion,M.Descripcion Marca,IdMarca, C.Descripcion Categoria,IdCategoria ,ImagenUrl,Precio from ARTICULOS A inner join MARCAS M on IdMarca = M.Id inner join CATEGORIAS C  on IdCategoria = C.Id");
 				datos.ejecutarLectura();
 
 				while (datos.Lector.Read())
@@ -33,8 +33,10 @@ namespace negocio
 					aux.Descripcion = (string)datos.Lector["Descripcion"];
 					aux.Marca = new Marca();
 					aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+					aux.Marca.Id = (int)datos.Lector["IdMarca"];
 					aux.Categoria = new Categoria();
 					aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+					aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
 					aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
 					aux.Precio = (decimal)datos.Lector["Precio"];
 
@@ -86,6 +88,34 @@ namespace negocio
 				datos.cerrarConexion();
 			}
 			
+		}
+
+		public void modificar(Articulo editable)
+		{
+
+			AccesoDatos datos = new AccesoDatos();
+
+			try
+			{
+				datos.setearConsulta("update ARTICULOS set Codigo=@codigo,Nombre=@nombre ,Descripcion=@descripcion,IdMarca=@marca,IdCategoria=@categoria,ImagenUrl=@imagen,Precio=@precio  where Id=5");
+				datos.setearParametros("@codigo",editable.Codigo);
+				datos.setearParametros("@nombre",editable.Nombre);
+				datos.setearParametros("@descripcion",editable.Descripcion);
+				datos.setearParametros("@marca",editable.Marca.Id);
+				datos.setearParametros("@categoria",editable.Marca.Id);
+				datos.setearParametros("@imagen",editable.ImagenUrl);
+				datos.setearParametros("@precio",editable.Precio);
+				datos.ejecutarAccion();
+			}
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+			finally
+			{
+				datos.cerrarConexion();
+			}
 		}
 
 		public void eliminar(Articulo eliminar)

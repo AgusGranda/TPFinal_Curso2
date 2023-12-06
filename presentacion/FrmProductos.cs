@@ -78,5 +78,13 @@ namespace presentacion
                 throw;
             }
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            FrmDetalleProducto editar = new FrmDetalleProducto(seleccionado);
+            editar.ShowDialog();
+            cargarColumnas();
+        }
     }
 }
