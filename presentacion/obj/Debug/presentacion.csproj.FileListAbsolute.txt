@@ -13,4 +13,5 @@ F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\negoc
 F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\dominio.pdb
 F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\bin\Debug\negocio.pdb
 F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.csproj.CopyComplete
-F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.FrmDetalleProducto.resources
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.FrmAlta.resources
+F:\Programacion\C#\Nivel2\TPFinalNivel2_GrandaMurua\presentacion\obj\Debug\presentacion.FrmDetalle.resources

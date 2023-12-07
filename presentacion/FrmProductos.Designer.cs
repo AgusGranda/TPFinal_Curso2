@@ -38,6 +38,7 @@
             this.cbxCriterio = new System.Windows.Forms.ComboBox();
             this.cbxSubCriterio = new System.Windows.Forms.ComboBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(681, 135);
+            this.btnAgregar.Location = new System.Drawing.Point(681, 140);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(93, 32);
             this.btnAgregar.TabIndex = 1;
@@ -70,7 +71,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(681, 202);
+            this.btnEditar.Location = new System.Drawing.Point(681, 207);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(93, 30);
             this.btnEditar.TabIndex = 2;
@@ -100,9 +101,10 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(448, 35);
+            this.txtBuscar.Enabled = false;
+            this.txtBuscar.Location = new System.Drawing.Point(370, 35);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(116, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(103, 20);
             this.txtBuscar.TabIndex = 5;
             // 
             // btnDetalle
@@ -113,6 +115,7 @@
             this.btnDetalle.TabIndex = 7;
             this.btnDetalle.Text = "Ver detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // cbxCriterio
             // 
@@ -120,32 +123,45 @@
             this.cbxCriterio.FormattingEnabled = true;
             this.cbxCriterio.Location = new System.Drawing.Point(148, 35);
             this.cbxCriterio.Name = "cbxCriterio";
-            this.cbxCriterio.Size = new System.Drawing.Size(121, 21);
+            this.cbxCriterio.Size = new System.Drawing.Size(88, 21);
             this.cbxCriterio.TabIndex = 8;
+            this.cbxCriterio.SelectedIndexChanged += new System.EventHandler(this.cbxCriterio_SelectedIndexChanged);
             // 
             // cbxSubCriterio
             // 
             this.cbxSubCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSubCriterio.FormattingEnabled = true;
-            this.cbxSubCriterio.Location = new System.Drawing.Point(304, 35);
+            this.cbxSubCriterio.Location = new System.Drawing.Point(261, 35);
             this.cbxSubCriterio.Name = "cbxSubCriterio";
-            this.cbxSubCriterio.Size = new System.Drawing.Size(121, 21);
+            this.cbxSubCriterio.Size = new System.Drawing.Size(88, 21);
             this.cbxSubCriterio.TabIndex = 9;
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(582, 31);
+            this.btnFiltrar.Location = new System.Drawing.Point(497, 31);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(93, 32);
             this.btnFiltrar.TabIndex = 10;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(609, 31);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(36, 31);
+            this.btnReset.TabIndex = 11;
+            this.btnReset.Text = "R";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 328);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.cbxSubCriterio);
             this.Controls.Add(this.cbxCriterio);
@@ -156,6 +172,7 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvArticulos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmProductos";
@@ -180,6 +197,7 @@
         private System.Windows.Forms.ComboBox cbxCriterio;
         private System.Windows.Forms.ComboBox cbxSubCriterio;
         private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.Button btnReset;
     }
 }
 
