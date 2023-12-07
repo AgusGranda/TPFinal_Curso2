@@ -29,7 +29,8 @@ namespace presentacion
             txtDescripcion.Text = articulo.Descripcion;
             txtMarca.Text = articulo.Marca.Descripcion;
             txtCategoria.Text = articulo.Categoria.Descripcion;
-            txtPrecio.Text = articulo.Precio.ToString();
+            txtPrecio.Text = articulo.Precio.ToString("N2");
+
         }
 
         private void cargarImagen(string imagen)

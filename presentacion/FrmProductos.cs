@@ -48,6 +48,7 @@ namespace presentacion
             dgvArticulos.Columns["Descripcion"].Visible = false;
             dgvArticulos.Columns["ImagenUrl"].Visible = false;
             dgvArticulos.Columns["Categoria"].Visible = false;
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -64,31 +65,58 @@ namespace presentacion
             try
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
-               DialogResult respuesta = MessageBox.Show("Esta seguro que desea eliminar este articulo?", "Eliminando articulo" ,MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ;
-
-                if (respuesta == DialogResult.Yes)
+                if (dgvArticulos.CurrentRow != null)
                 {
-                    negocio.eliminar(seleccionado);
-                    MessageBox.Show("Articulo eliminado correctamente!");
-                    cargarColumnas();
+
+                    Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+                   DialogResult respuesta = MessageBox.Show("Esta seguro que desea eliminar este articulo?", "Eliminando articulo" ,MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ;
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        negocio.eliminar(seleccionado);
+                        MessageBox.Show("Articulo eliminado correctamente!");
+                        cargarColumnas();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ningun elemento seleccionado");
+                    return;
                 }
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            FrmAlta editar = new FrmAlta(seleccionado);
-            editar.ShowDialog();
-            cargarColumnas();
+
+            try
+            {
+                if (dgvArticulos.CurrentRow != null)
+                {
+                    Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    FrmAlta editar = new FrmAlta(seleccionado);
+                    editar.ShowDialog();
+                    cargarColumnas();
+                }
+                else
+                {
+                    MessageBox.Show("Ningun elemento seleccionado");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void cbxCriterio_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,6 +132,7 @@ namespace presentacion
                     cbxSubCriterio.Items.Add("Mayor A");
                     cbxSubCriterio.Items.Add("Igual A");
                     txtBuscar.Enabled = true;
+                    btnReset.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -120,6 +149,7 @@ namespace presentacion
                     cbxSubCriterio.DataSource = marca.listar();
                     txtBuscar.Text = "";
                     txtBuscar.Enabled = false;
+                    btnReset.Enabled = true;
 
                 }
                 catch (Exception ex)
@@ -138,6 +168,7 @@ namespace presentacion
                     cbxSubCriterio.DataSource = categoria.listar();
                     txtBuscar.Text = "";
                     txtBuscar.Enabled = false;
+                    btnReset.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -206,12 +237,28 @@ namespace presentacion
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            cbxSubCriterio.SelectedIndex = -1;
-            cbxCriterio.SelectedIndex = -1;
-            if (txtBuscar.Text != "")
-                txtBuscar.Text = "";
-            txtBuscar.Enabled = false;
-            cargarColumnas();
+
+            try
+            {
+                cbxCriterio.SelectedIndex = -1;
+                cbxSubCriterio.DataSource = null;
+                cbxSubCriterio.Items.Clear();
+
+                if (txtBuscar.Text != "")
+                    txtBuscar.Text = "";
+
+                txtBuscar.Enabled = false;
+                btnReset.Enabled = false;
+                cargarColumnas();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            
+
         }
 
         private void btnDetalle_Click(object sender, EventArgs e)
@@ -220,15 +267,23 @@ namespace presentacion
 
             try
             {
-                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                FrmDetalle detalle = new FrmDetalle(seleccionado);
-                detalle.ShowDialog();
-
+                if(dgvArticulos.CurrentRow != null)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    FrmDetalle detalle = new FrmDetalle(seleccionado);
+                    detalle.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Ningun elemento seleccionado");
+                    return;
+                }
+                    
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                
+                MessageBox.Show(ex.ToString());
             }
 
 

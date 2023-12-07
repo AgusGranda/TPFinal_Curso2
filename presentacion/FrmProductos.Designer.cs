@@ -44,14 +44,11 @@
             // 
             // dgvArticulos
             // 
-            this.dgvArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvArticulos.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 73);
+            this.dgvArticulos.Location = new System.Drawing.Point(12, 88);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.ReadOnly = true;
@@ -61,7 +58,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(681, 140);
+            this.btnAgregar.Location = new System.Drawing.Point(681, 155);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(93, 32);
             this.btnAgregar.TabIndex = 1;
@@ -71,7 +68,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(681, 207);
+            this.btnEditar.Location = new System.Drawing.Point(681, 222);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(93, 30);
             this.btnEditar.TabIndex = 2;
@@ -81,7 +78,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(681, 272);
+            this.btnEliminar.Location = new System.Drawing.Point(681, 287);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(93, 31);
             this.btnEliminar.TabIndex = 3;
@@ -93,7 +90,7 @@
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(12, 31);
+            this.lblBuscar.Location = new System.Drawing.Point(12, 13);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(108, 20);
             this.lblBuscar.TabIndex = 4;
@@ -102,14 +99,14 @@
             // txtBuscar
             // 
             this.txtBuscar.Enabled = false;
-            this.txtBuscar.Location = new System.Drawing.Point(370, 35);
+            this.txtBuscar.Location = new System.Drawing.Point(238, 43);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(103, 20);
             this.txtBuscar.TabIndex = 5;
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(681, 73);
+            this.btnDetalle.Location = new System.Drawing.Point(681, 88);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(93, 32);
             this.btnDetalle.TabIndex = 7;
@@ -121,7 +118,7 @@
             // 
             this.cbxCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCriterio.FormattingEnabled = true;
-            this.cbxCriterio.Location = new System.Drawing.Point(148, 35);
+            this.cbxCriterio.Location = new System.Drawing.Point(16, 43);
             this.cbxCriterio.Name = "cbxCriterio";
             this.cbxCriterio.Size = new System.Drawing.Size(88, 21);
             this.cbxCriterio.TabIndex = 8;
@@ -131,14 +128,14 @@
             // 
             this.cbxSubCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSubCriterio.FormattingEnabled = true;
-            this.cbxSubCriterio.Location = new System.Drawing.Point(261, 35);
+            this.cbxSubCriterio.Location = new System.Drawing.Point(129, 43);
             this.cbxSubCriterio.Name = "cbxSubCriterio";
             this.cbxSubCriterio.Size = new System.Drawing.Size(88, 21);
             this.cbxSubCriterio.TabIndex = 9;
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(497, 31);
+            this.btnFiltrar.Location = new System.Drawing.Point(362, 36);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(93, 32);
             this.btnFiltrar.TabIndex = 10;
@@ -148,11 +145,12 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(609, 31);
+            this.btnReset.Enabled = false;
+            this.btnReset.Location = new System.Drawing.Point(470, 46);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(36, 31);
+            this.btnReset.Size = new System.Drawing.Size(67, 22);
             this.btnReset.TabIndex = 11;
-            this.btnReset.Text = "R";
+            this.btnReset.Text = "Resetear";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -160,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 328);
+            this.ClientSize = new System.Drawing.Size(808, 351);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.cbxSubCriterio);

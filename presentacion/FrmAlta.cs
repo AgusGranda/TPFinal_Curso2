@@ -11,7 +11,7 @@ using negocio;
 using dominio;
 using static System.Net.Mime.MediaTypeNames;
 using System.IO;
-using System.Configuration;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace presentacion
 {
@@ -58,7 +58,7 @@ namespace presentacion
                     cbxCategoria.SelectedValue = articulo.Categoria.Id;
                     txtImagen.Text = articulo.ImagenUrl;
                     cargarImagen(txtImagen.Text);
-                    txtPrecio.Text = articulo.Precio.ToString();
+                    txtPrecio.Text = articulo.Precio.ToString("N2");
                 }
 
             }
@@ -73,12 +73,33 @@ namespace presentacion
 
         }
 
+        private bool validacionArticulo(Articulo articulo)
+        {
+
+            
+            if (txtCodigo.Text == "" ||  txtNombre.Text== "" || txtDescripcion.Text== "" || txtPrecio.Text == "")
+            {
+                MessageBox.Show("Complete todos los campos por favor");
+                return false;
+            }
+            return true;
+        }
+
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-
-            
-
 
                 try
                 {
@@ -91,30 +112,35 @@ namespace presentacion
                     articulo.ImagenUrl = txtImagen.Text;
                     articulo.Marca = (Marca)cbxMarca.SelectedItem;
                     articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
-                    articulo.Precio = decimal.Parse(txtPrecio.Text);
 
+                    // validaciones;
+
+
+                    if (!(validacionArticulo(articulo)))
+                        return;
+                    else
+                        articulo.Precio = decimal.Parse(txtPrecio.Text);
 
 
                     if (articulo.Id != 0)
-                    {
-                        negocio.modificar(articulo);
-                        MessageBox.Show("Articulo modificado correctamente!");
+                        {
+                           negocio.modificar(articulo);
+                           MessageBox.Show("Articulo modificado correctamente!");
+                        }
 
-                   
-                    }
-                    else 
+                    else
                     {
+                        if (!(soloNumeros(txtPrecio.Text)))
+                        {
+                            MessageBox.Show("Ingrese solo numeros en el campo 'Precio' por favor!");
+                            return;
+                        }
                         negocio.agregar(articulo);
                         MessageBox.Show("Articulo agregado correctamente!");
-                    
+
                     }
-                Close();
+                    Close();
 
-                   /*/ if (articulo != null && !(txtImagen.Text.Contains("http")))
-                        File.Copy(archivo.FileName, ConfigurationManager.AppSettings["articulo-imagen"] + archivo.SafeFileName);
-
-                        Close();
-                   /*/
                 }
 
                 catch (Exception ex)
@@ -122,9 +148,7 @@ namespace presentacion
                      MessageBox.Show(ex.ToString());
                     
                 }
-
-
-
+    
 
         }
 
@@ -156,20 +180,7 @@ namespace presentacion
           private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
 
-            /*/
-            archivo = new OpenFileDialog();
-            archivo.Filter = "jpg|*.jpg;|png|*.png";
-
-
-            if (archivo.ShowDialog() == DialogResult.OK)
-            {
-                txtImagen.Text = archivo.FileName;
-                cargarImagen(archivo.FileName);
-
-            }
-            
-            /*/
-
+     
         }
         
     }
